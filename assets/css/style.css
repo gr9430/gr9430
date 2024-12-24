@@ -1,0 +1,402 @@
+/* Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
+    line-height: 1.6;
+}
+
+/* === Banner Image Styles === */
+.banner {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* Alignment for Header Outside Container */
+.aligned-header {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 25px;
+    text-align: left;
+}
+
+.aligned-header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Navbar and Dropdown Styles */
+/* Center the Navbar */
+#navbar-container {
+    text-align: center;
+    background-color: #000000;
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow to the navbar for depth */
+}
+
+.navbar {
+    display: inline-block;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* More spacing between items for better aesthetics */
+}
+
+/* Navbar Items Styling */
+.menu > li {
+    position: relative;
+}
+
+.menu > li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; /* Added transition for smooth effects */
+}
+
+.menu > li a:hover {
+    background-color: #111111;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Add shadow on hover for better depth */
+    transform: translateY(-2px); /* Slight lift on hover to make interaction feel tactile */
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #111111; /* Darken dropdown to distinguish it from navbar */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Deeper shadow for dropdown to create separation */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    min-width: 200px;
+    text-align: left;
+    border-radius: 8px; /* Rounded corners for dropdown */
+    z-index: 1000;
+}
+
+/* Styling for Individual Dropdown Items */
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 12px 15px;
+    display: block;
+    transition: background-color 0.3s ease, padding-left 0.3s ease; /* Smooth effect for hover changes */
+}
+
+.dropdown-menu li a:hover {
+    background-color: #666; /* Slightly lighter color on hover */
+    padding-left: 20px; /* Indent text on hover for a nice interactive effect */
+}
+
+/* Display Dropdown Menu on Hover */
+.menu > li:hover .dropdown-menu {
+    display: block;
+}
+
+/* Additional Styling for Navbar Responsiveness */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .dropdown-menu {
+        left: 0;
+        transform: none;
+    }
+}
+  
+/* Containers */
+.container,
+#two-column-container {
+    max-width: 1200px; /* Ensure both single and double-column containers have the same width */
+    margin: 40px auto; /* Center the container and provide vertical spacing */
+    padding: 20px; /* Provide consistent padding for both single and double columns */
+    background-color: #111111; /* Match the rest of the site */
+    border-radius: 5px; /* Optional for rounded edges */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Add shadow for consistency */
+}
+
+#two-column-container {
+    display: flex;
+    flex-direction: row; /* Arrange columns horizontally */
+    gap: 20px; /* Add space between columns */
+}
+
+.column {
+    flex: 1; /* Each column takes up equal width */
+    color: #dddddd; /* Set text color for better readability */
+}
+
+.column-left {
+    padding-right: 10px;
+}
+
+.column-right {
+    padding-left: 10px;
+}
+
+/* Fix the container to ensure content doesn't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Updated #canvas-container and #message-container for Game Layout */
+#canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;  /* Adjust the width automatically based on the image */
+    height: auto; /* Adjust the height automatically based on the image */
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    overflow: hidden; /* Prevent image from overflowing */
+}
+
+
+#message-container {
+    flex: 1; /* Ensure it takes equal width in two-column layout */
+    color: #ffffff; /* White text to make it visible on black background */
+    background-color: #111111; /* Set the background color to match */
+    padding: 20px; /* Padding for readability */
+    border-radius: 5px; /* Rounded edges */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Add shadow for consistency */
+}
+
+.parent-element, p {
+  column-count: initial;
+  column-width: initial;
+}
+
+.survey-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #111111;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#book-list {
+    margin-bottom: 20px; /* Add space below book list */
+}
+
+.book-container {
+    margin-bottom: 15px; /* Add space between each book container */
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Optional: add a light border to separate each book */
+}
+
+#progress-bar-container {
+    margin-bottom: 20px; /* Add space below progress bar container */
+}
+
+button {
+    display: block; /* Ensure each button is on a separate line */
+    margin: 10px 0; /* Add space above and below each button */
+}
+
+#rating-summary {
+    margin-top: 20px;
+}
+
+#top-genres {
+    margin-top: 20px;
+}
+
+#recommendation {
+    margin-top: 20px;
+}
+
+
+/* Game Specific Styling */
+#game-container {
+    max-width: 1000px;
+    margin: 0 auto; /* Center the container */
+    padding: 0; /* Remove extra padding if not needed */
+    height: auto; /* Let height adjust based on content */
+    background-color: #111111; /* Matching container color with the rest of the site */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff; /* Ensure consistent color for headings */
+}
+
+p {
+    margin-bottom: 15px;
+    color: #dddddd; /* Light grey for readability on black background */
+    font-size: 16px; /* Set the font size for all paragraphs */
+    line-height: 1.5; /* Add line height for readability */
+    column-count: initial !important;
+    column-width: initial !important;
+    float: none !important;
+    display: block !important;
+    flex: initial !important;
+    text-align: left !important; /* Align text to the left */
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #333333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px; /* Adds space above the button */
+}
+
+button:hover {
+    background-color: #555555;
+    transform: scale(1.05);
+}
+
+.reset-button {
+    margin-top: 20px;
+    background-color: #ff5555; /* Different color for visibility */
+    color: #000000; /* Black text for contrast */
+}
+
+.reset-button:hover {
+    background-color: #ff7777;
+}
+
+footer {
+    display: flex;                /* Use flexbox for easy centering */
+    justify-content: center;      /* Center content horizontally */
+    align-items: center;          /* Center content vertically */
+    text-align: center;           /* Ensure text is centered */
+    padding: 20px;                /* Add padding for visual spacing */
+    background-color: #111111;    /* Dark background color for contrast */
+    color: #ffffff;               /* White text for visibility */
+    font-size: 14px;              /* Adjust font size if needed */
+    box-shadow: 0 -2px 5px rgba(255, 255, 255, 0.1); /* Optional: Add shadow for depth */
+}
+
+/* Carousel Container */
+
+.carousel-container {
+    position: relative;
+    width: 600px; /* Adjust as needed */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden; /* Hide images that are not active */
+}
+
+.carousel-wrapper {
+    display: flex; /* Align all images in a row */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+    width: 100%; /* Ensure each image takes up the full container width */
+    flex-shrink: 0;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.carousel-btn.left {
+    left: 10px;
+}
+
+.carousel-btn.right {
+    right: 10px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3000; /* Ensure modal appears above all other elements */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black with opacity */
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px; /* Optional: rounded edges */
+    transition: transform 0.3s ease-in-out;
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.close:hover,
+.close:focus {
+    color: #bbbbbb;
+}
+/* Additional Modal Styling to Prevent Last Image from Appearing Outside the Carousel */
+.carousel-wrapper img {
+    display: block;
+}
+video {
+  width: 100%; /* Takes up the entire width of the container */
+  height: auto; /* Maintains aspect ratio */
+}
