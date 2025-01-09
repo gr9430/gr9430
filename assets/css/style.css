@@ -37,31 +37,29 @@ body {
     margin-bottom: 20px;
 }
 
-/* Navbar and Dropdown Styles */
-/* Center the Navbar */
+/* Navbar Styles */
 #navbar-container {
     text-align: center;
-    background-color: #000000;
+    background-color: #000; /* Black background */
     padding: 15px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow to the navbar for depth */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
 
 .navbar {
-    background-color: #000; /* Dark background */
-    padding: 15px 0;
     display: flex;
-    justify-content: center; /* Center the navbar */
-    align-items: center; /* Align items vertically */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-    position: sticky;
+    justify-content: center; /* Center the menu horizontally */
+    align-items: center;
+    padding: 0;
+    background-color: #000000; /* Black background for navbar */
+    position: sticky; /* Sticky navbar */
     top: 0;
-    z-index: 1000; /* Ensure the navbar stays above other content */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
 .navbar-list {
-    list-style: none; /* Remove bullet points */
+    list-style: none; /* Remove default bullets */
     display: flex; /* Align items horizontally */
-    gap: 20px; /* Space between links */
+    gap: 20px; /* Add space between menu items */
     margin: 0;
     padding: 0;
 }
@@ -73,74 +71,54 @@ body {
 .navbar-link {
     text-decoration: none; /* Remove underline */
     color: #ffffff; /* White text */
-    padding: 10px 20px; /* Padding for button-like appearance */
+    padding: 10px 20px; /* Button-like padding */
+    background-color: #444; /* Dark button background */
     border-radius: 5px; /* Rounded corners */
-    background-color: #333; /* Dark button background */
-    font-weight: bold;
     font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    font-weight: bold;
+    transition: all 0.3s ease; /* Smooth hover effects */
 }
 
 .navbar-link:hover {
-    background-color: #007BFF; /* Highlight on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    color: #ffffff; /* Ensure text stays visible */
+    background-color: #007BFF; /* Blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    color: #ffffff; /* Ensure text remains visible */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Add depth */
 }
 
-/* Dropdown Menu Styling */
-.menu > li {
-    position: relative;
-}
-
-.menu > li a {
-    text-decoration: none;
-    color: #ffffff;
-    padding: 10px 20px;
-    display: inline-block;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.menu > li a:hover {
-    background-color: #111111;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    transform: translateY(-2px);
-}
-
+/* Dropdown Menu Styles */
 .dropdown-menu {
-    display: none;
+    display: none; /* Hide dropdown by default */
     position: absolute;
-    top: 100%;
+    top: 100%; /* Position below the parent link */
     left: 50%;
     transform: translateX(-50%);
-    background-color: #111111;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    min-width: 200px;
-    text-align: left;
-    border-radius: 8px;
+    background-color: #111; /* Slightly lighter background */
+    border-radius: 5px;
+    padding: 10px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
     z-index: 1000;
+    list-style: none; /* Remove bullets */
+    margin: 0;
 }
 
 .dropdown-menu li {
-    width: 100%;
+    padding: 5px 20px; /* Add padding inside dropdown items */
 }
 
 .dropdown-menu li a {
-    text-decoration: none;
-    color: #ffffff;
-    padding: 12px 15px;
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* White text */
     display: block;
-    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown-menu li a:hover {
-    background-color: #666;
-    padding-left: 20px;
+    background-color: #444; /* Slightly lighter hover effect */
 }
 
-.menu > li:hover .dropdown-menu {
+/* Show dropdown menu on hover */
+.navbar-item:hover .dropdown-menu {
     display: block;
 }
 
@@ -148,13 +126,12 @@ body {
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column; /* Stack items vertically */
-        padding: 10px;
+        align-items: center;
     }
 
     .navbar-list {
         flex-direction: column;
-        align-items: center; /* Center links in mobile view */
-        gap: 10px;
+        gap: 10px; /* Space between vertical menu items */
     }
 
     .dropdown-menu {
