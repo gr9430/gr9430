@@ -1,7 +1,7 @@
 // Function to initialize navbar dropdown functionality
 function initializeNavBar() {
-    const navBarElement = document.getElementById("navbar-container");
-    
+    const navBarElement = document.getElementById("navbar");
+
     if (navBarElement) {
         // For hover functionality (for desktop)
         navBarElement.addEventListener('mouseover', (e) => {
@@ -24,7 +24,7 @@ function initializeNavBar() {
 
         // For click functionality (especially useful for mobile devices)
         const dropdownLinks = document.querySelectorAll('.dropdown > a');
-        
+
         dropdownLinks.forEach(dropdownLink => {
             dropdownLink.addEventListener('click', (event) => {
                 event.preventDefault(); // Prevent default link behavior
@@ -80,20 +80,29 @@ function initializeCarousel() {
             const nextButton = document.querySelector('.carousel-next');
             const prevButton = document.querySelector('.carousel-prev');
             if (nextButton && prevButton) {
-                nextButton.addEventListener('click', nextItem);
-                prevButton.addEventListener('click', previousItem);
+                nextButton.addEventListener('click', () => {
+                    clearInterval(autoRotate);
+                    nextItem();
+                    autoRotate = setInterval(nextItem, 3000);
+                });
+
+                prevButton.addEventListener('click', () => {
+                    clearInterval(autoRotate);
+                    previousItem();
+                    autoRotate = setInterval(nextItem, 3000);
+                });
             }
 
             // Automatically start showing the first item
             showItem(currentIndex);
 
             // Optionally add auto-rotation (e.g., every 3 seconds)
-            setInterval(nextItem, 3000);
+            let autoRotate = setInterval(nextItem, 3000);
         }
     }
 }
 
-// Paragraph Generator Initialization
+// Function to initialize the paragraph generator
 function initializeParagraphGenerator() {
     const generateBtn = document.getElementById('generateBtn');
     const output = document.getElementById('output');
@@ -196,9 +205,26 @@ function loadCSS(filePath) {
 
 // Initialize everything once DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-    initializeNavBar(); // Initialize navbar dropdown functionality
-    initializeCarousel(); // Initialize carousel functionality
-    initializeParagraphGenerator(); // Initialize paragraph generator
-    fetchJsonData(); // Fetch book data
-    loadCSS("/ENG6806/project_root/static/css/style.css"); // Load CSS
+    // Initialize dynamic navbar and footer
+    document.getElementById('navbar').innerHTML = `
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    `;
+    document.getElementById('footer').innerHTML = `
+        <footer>
+            <p>&copy; 2025 Glenn S. Ritchey III. All rights reserved.</p>
+        </footer>
+    `;
+
+    initializeNavBar();
+    initializeCarousel();
+    initializeParagraphGenerator();
+    fetchJsonData();
+    loadCSS("/ENG6806/project_root/static/css/style.css");
 });
